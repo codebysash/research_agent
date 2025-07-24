@@ -1,0 +1,23 @@
+{
+  "name": "research-agent",
+  "version": "1.0.0",
+  "description": "A TypeScript app that uses OpenAI agents to research topics and generate reports",
+  "main": "main.ts",
+  "private": true,
+  "scripts": {
+    "start": "tsx main.ts",
+    "demo": "tsx demo.ts",
+    "build-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@openai/agents": "^0.0.13",
+    "openai": "^4.91.0",
+    "dotenv": "^16.5.0",
+    "zod": "<=3.25.67"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
