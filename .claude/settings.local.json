@@ -12,7 +12,10 @@
       "Bash(npx tsx:*)",
       "mcp__ide__getDiagnostics",
       "Bash(npm start)",
-      "Bash(npm run demo:*)"
+      "Bash(npm run demo:*)",
+      "Bash(npm run build:*)",
+      "Bash(timeout 10 npm run dev)",
+      "Bash(gtimeout:*)"
     ],
     "deny": []
   }

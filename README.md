@@ -43,7 +43,35 @@ The application now uses OpenAI's native web search capabilities which provide:
 
 ## Usage
 
-### Quick Demo
+### Web Interface (Recommended)
+
+Launch the beautiful web interface:
+```bash
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser. The web interface provides:
+
+- **Elegant UI**: Clean, modern design with Tailwind CSS
+- **Interactive Form**: Easy-to-use research question input with example prompts
+- **Real-time Loading**: Beautiful loading animations showing research progress
+- **Comprehensive Reports**: Well-formatted sections for summary, findings, detailed report, follow-up questions, and sources
+- **Report Saving**: One-click download of reports as markdown files
+- **Responsive Design**: Works perfectly on desktop and mobile devices
+
+### Production Deployment
+
+Build for production:
+```bash
+npm run build
+npm run start-next
+```
+
+The app is ready for deployment on Vercel, Netlify, or any Next.js hosting platform.
+
+### CLI Mode
+
+#### Quick Demo
 
 To see the research agent in action with a sample question:
 ```bash
@@ -52,14 +80,14 @@ npm run demo
 
 This will demonstrate the complete research workflow using a predefined question about renewable energy technology.
 
-### Interactive Mode
+#### Interactive CLI
 
-Run the full interactive application:
+Run the command-line interface:
 ```bash
-npm start
+npm run start-cli
 ```
 
-The application will start an interactive CLI where you can:
+The CLI application will start an interactive mode where you can:
 
 - Ask research questions on any topic
 - Type `help` to see example questions
@@ -88,15 +116,26 @@ For each research question, the application provides:
 
 ```
 research-agent/
-├── main.ts              # CLI entry point
-├── manager.ts           # Research workflow coordinator
-├── agents.ts            # Agent definitions and types
-├── web-search-agent.ts  # OpenAI web search integration with citations
-├── demo.ts              # Demonstration script
-├── example-queries.txt  # Sample research questions
-├── package.json         # Dependencies and scripts
-├── tsconfig.json        # TypeScript configuration
-└── .env                # Environment variables (not tracked)
+├── app/                     # Next.js 14 app directory
+│   ├── api/research/        # API route for research requests
+│   ├── components/          # React components
+│   │   ├── ResearchForm.tsx    # Input form with examples
+│   │   ├── LoadingState.tsx    # Loading animations
+│   │   └── ReportDisplay.tsx   # Report presentation
+│   ├── globals.css          # Tailwind CSS styles
+│   ├── layout.tsx           # Root layout component
+│   └── page.tsx             # Main page component
+├── main.ts                  # CLI entry point
+├── manager.ts               # Research workflow coordinator
+├── agents.ts                # Agent definitions and types
+├── web-search-agent.ts      # OpenAI web search integration with citations
+├── demo.ts                  # Demonstration script
+├── example-queries.txt      # Sample research questions
+├── package.json             # Dependencies and scripts
+├── next.config.js           # Next.js configuration
+├── tailwind.config.js       # Tailwind CSS configuration
+├── tsconfig.json            # TypeScript configuration
+└── .env                     # Environment variables (not tracked)
 ```
 
 ## Requirements

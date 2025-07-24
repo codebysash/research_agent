@@ -21,6 +21,19 @@ export class ResearchManager {
     this.webSearchAgent = new WebSearchAgent();
   }
 
+  async conductResearchForAPI(query: string): Promise<ReportData> {
+    // Step 1: Plan the research strategy
+    const searchPlan = await this.planResearchStrategy(query);
+    
+    // Step 2: Execute all searches
+    const searchResults = await this.executeSearches(searchPlan);
+    
+    // Step 3: Generate comprehensive report
+    const report = await this.generateReport(query, searchResults);
+    
+    return report;
+  }
+
   async conductResearch(query: string, interactive: boolean = false): Promise<void> {
     await withTrace('Research Agent Workflow', async (trace) => {
       console.log(`🔍 Starting research for: "${query}"`);
